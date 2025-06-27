@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int q;
+    cin>>q;
+    for(int i=0;i<q;i++){
+        int n;
+        cin>>n;
+        vector<int> v;
+        for(int j=0;j<4*n;j++){
+            int num;
+            cin>>num;
+            v.push_back(num);
+        }
+        sort(v.begin(),v.end());
+        bool rect=true;
+        for(int j=0;j<4*n-1;j+=2){
+            if(v[j]!=v[j+1]){
+                rect=false;
+                break;
+            }
+        }
+        int product;
+        if(rect){
+            product= v[0]*v[4*n-1];
+        }
+        else {
+            cout<<"no"<<"\n";
+            continue;
+        }
+        for(int j=2;j<2*n;j+=2){
+            if(v[j]*v[(4*n)-1-j]!=product){
+                rect=false;
+                break;
+            }
+        }
+        if(rect)cout<<"YES"<<"\n";
+        else cout<<"NO"<<"\n";
+    }
+}
