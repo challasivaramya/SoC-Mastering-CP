@@ -1,20 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
+int main(){
     int t;
-    cin >> t;
-    while (t--) {
-        int n, count = 0;
-        cin >> n;
-        for (int d = 1; d <= 9; d++) {
-            long long num = d;
-            while (num <= n) {
-                count++;
-                num = num * 10 + d;
+    cin>>t;
+    for(int i=0;i<t;i++){
+        int n,num;
+        cin>>n;
+        num=n;
+        int index=0;int m;
+        while(num!=0){
+            index++;
+            if(num/10==0){
+                m=num;
             }
+            num/=10;
         }
-        cout << count << "\n";
+        int output=(index-1)*9;
+        int prev_num=0;
+        for(int j=0;j<index;j++){
+            prev_num=10*prev_num+m;
+        }
+        if(n>=prev_num)output+=m;
+        else {output+=m-1;}
+        cout<<output<<"\n";
     }
-
 }
