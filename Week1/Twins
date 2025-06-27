@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+void swap(int &a,int &b){
+    int temp=b;
+    b=a;
+    a=temp;
+}
+void sort_array(int arr[],int n){
+    if(n==0){
+        return;
+    }
+    else{
+        if((arr[n])<(arr[n-1])){
+            swap(arr[n],arr[n-1]);
+            sort_array(arr,n-1);
+        }
+        else return;
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    int sum=0;
+    for (int j=0;j<n;j++){
+        cin>>arr[j];
+        sum+=arr[j];
+        sort_array(arr,j);
+    }
+    int k=n-1;
+    bool isgreater=false;
+    int total=0;
+    while(!isgreater){
+        sum=sum-arr[k];
+        total+=arr[k];
+        if(sum< total){
+            isgreater=true;
+        }
+        k--;
+    }
+    cout<<(n-1-k);
+}
