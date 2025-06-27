@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> getExponents(int n) {
+    vector<int> exponents;
+    for (int i = 2; i * i <= n; ++i) {
+            int count = 0;
+            while (n % i == 0) {
+                count++;
+                n /= i;
+            }
+            exponents.push_back(count);
+        
+    }
+    if (n > 1) exponents.push_back(1);
+    return exponents;
+}
+
+int main() {
+    int q;
+    cin >> q;
+    while (q--) {
+        int n;
+        cin >> n;
+        vector<int> exps = getExponents(n);
+        int divisors = 1;
+        for (int exp : exps)
+            divisors *= (exp + 1);
+        cout << divisors << "\n";
+    }
+    return 0;
+}
