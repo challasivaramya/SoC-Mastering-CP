@@ -13,7 +13,7 @@ I have learnt the time complexity which helped me optimise the code and decide t
 ---
 
 ## Week 2(Greedy Algorithms and Bit manipulation):
-Learnt how to make local optimal choices that are globally optimal.  
+Learnt how to make local optimal choices to globally optimal.  
 Understood to solve the corner cases in greedy algorithms.  
 Explored bitwise operators (AND,OR,XOR,NOT) and shifts.  
 Understood  bit manipulation on various problems.
