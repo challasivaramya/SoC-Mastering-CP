@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n;
+    cin >> n;
+
+    if (n == 0) {
+        cout << 1 << endl;
+    } else {
+        int power[] = {8, 4, 2, 6};
+        cout << power[(n - 1) % 4] << endl;
+    }
+}
