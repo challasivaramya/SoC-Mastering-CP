@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    ll t;
+    cin >> t;
+    while (t--) {
+        ll n, k;
+        cin >> n >> k;
+        map<ll, ll> remainders;
+        ll maximum = 0;
+
+        for (ll i = 0; i < n; i++) {
+            ll num;
+            cin >> num;
+            ll rem = num % k;
+            if (rem != 0) {
+                ll extra = k - rem;
+                ll input = extra + remainders[extra] * k;
+                remainders[extra]++;
+                maximum = max(maximum, input);
+            }
+        }
+
+        cout << (maximum == 0 ? 0 : maximum + 1) << "\n";
+    }
+}
