@@ -27,9 +27,5 @@ learnt Euclid's totient function,modular exponentiation,inverse,combinatoric tec
 
 --
 
-## Week 4(Dynamic Programming)
-Identifying the dynamic programming problems.
-Memoization.
-
 
 *The filenames of the codes are according to the ones mentioned in the original repository,*
