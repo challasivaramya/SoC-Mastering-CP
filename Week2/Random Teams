@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+long long  n,m;
+cin>>n>>m;
+long long kmin,kmax;
+long long max_mem=n-m+1;
+kmax=(max_mem*(max_mem-1))/2;
+long long max_grps=n%m;
+long long size=n/m;
+kmin=(max_grps*(size+1)*size)/2 + ((m-max_grps)*size*(size-1))/2;
+cout<<kmin<<" "<<kmax;
+}
