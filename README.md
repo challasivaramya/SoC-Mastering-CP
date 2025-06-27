@@ -16,7 +16,7 @@ I have learnt the time complexity which helped me optimise the code and decide t
 Learnt how to make local optimal choices that are globally optimal.  
 Understood to solve the corner cases in greedy algorithms.  
 Explored bitwise operators (AND,OR,XOR,NOT) and shifts.  
-Understood and applied bit manipulation on various problems.
+Understood  bit manipulation on various problems.
 
 ---
 
