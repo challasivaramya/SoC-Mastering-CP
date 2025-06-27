@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+        int n;
+        cin>>n;
+        vector<vector<int>> arr(n);
+        for(int j=0;j<2*n;j++){
+            int num;
+            cin>>num;
+            arr[num-1].push_back(j);
+
+        }
+        long long d1,d2,dist=0;
+        long  a=arr[0][0];
+        long  b=arr[0][1];
+        dist+=a;
+        dist+=b;
+        for(int i=1;i<n;i++){
+            long  first=arr[i][0];
+            long second=arr[i][1];
+            d1=abs(first-a)+abs(second-b);
+            d2=abs(first-b)+abs(second-a);
+            dist+=(d1<d2?d1:d2);
+            a=first;
+            b=second;
+        }
+        cout<<dist<<"\n";
+
+    }
