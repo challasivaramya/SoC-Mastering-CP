@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+
+        unordered_map<int, int> index;
+        int len = n + 1;
+
+        for (int i = 0; i < n; i++) {
+            if (index.count(a[i])) {
+                len = min(len, i - index[a[i]] + 1);
+            }
+            index[a[i]] = i;
+        }
+
+        if (len == n + 1) {
+            cout << -1 << '\n';
+        } else {
+            cout << len << '\n';
+        }
+    }
+
+}
