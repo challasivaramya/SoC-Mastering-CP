@@ -1,1 +1,1 @@
-# SoC-Master-CP
+# SoC-Mastering-CP
