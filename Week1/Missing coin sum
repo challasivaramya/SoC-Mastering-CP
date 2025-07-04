@@ -5,12 +5,12 @@ int main(){
     cin>>n;
     long long missing_number=1;
     vector<int> arr(n);
-    while(n--){
-        cin>>arr[n];
-    }
+   for(int j=0;j<n;j++){
+    cin>>arr[j];
+   }
     sort(arr.begin(),arr.end());
     int i=0;
-    while(missing_number>=arr[i]){
+    while(missing_number>=arr[i] && i<n){
         missing_number+=arr[i];
         i++;
     }
