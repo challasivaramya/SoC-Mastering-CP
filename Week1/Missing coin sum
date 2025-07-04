@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    long long missing_number=1;
+    vector<int> arr(n);
+    while(n--){
+        cin>>arr[n];
+    }
+    sort(arr.begin(),arr.end());
+    int i=0;
+    while(missing_number>=arr[i]){
+        missing_number+=arr[i];
+        i++;
+    }
+    cout<<missing_number;
+}
