@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        int num=arr2.size();
+        vector<int> sorted;
+        for(int i=0;i<num;i++){
+            auto x=find(arr1.begin(),arr1.end(),arr2[i]);
+            while(x!=arr1.end()){
+                sorted.push_back(arr2[i]);
+                arr1.erase(x);
+                 x=find(arr1.begin(),arr1.end(),arr2[i]);
+                
+            }
+        }
+        sort(arr1.begin(),arr1.end());
+        for(int i=0;i<arr1.size();i++){
+            sorted.push_back(arr1[i]);
+        }
+        return sorted;
+    }
+};
