@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<int>> connected(n);
+    vector<bool> visited(n,false);
+    
+    for(int i=0;i<m;i++){
+        int a,b;
+        cin >> a >> b;
+        a--; b--;
+        connected[a].push_back(b);
+        connected[b].push_back(a);
+    }
+    
+    vector<int> cities;
+    for(int i=0;i<n;i++){
+        if(!visited[i]){
+            cities.push_back(i);
+            stack<int> neighbours;
+            neighbours.push(i);
+            visited[i] = true;
+            
+            while(!neighbours.empty()){
+                int node = neighbours.top(); neighbours.pop();
+                for(int neighbour : connected[node]){
+                    if(!visited[neighbour]){
+                        visited[neighbour] = true;
+                        neighbours.push(neighbour);
+                    }
+                }
+            }
+        }
+    }
+    
+    int k = cities.size() - 1;
+    cout << k << "\n";
+    for(int i=0;i<k;i++){
+        cout << cities[i]+1 << " " << cities[i+1]+1 << "\n";
+    }
+}
