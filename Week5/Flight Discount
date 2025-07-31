@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<pair<int,long long>>> graph(n);
+    for(int i = 0; i < m; i++) {
+        int a, b;
+        long long c;
+        cin >> a >> b >> c;
+        a--; b--;
+        graph[a].push_back({b, c});
+    }
+
+    const long long INF = 1e18;
+    vector<vector<long long>> dist(n, vector<long long>(2, INF));
+    dist[0][0] = 0;
+
+    priority_queue<
+        pair<long long, pair<int,int>>,
+        vector<pair<long long, pair<int,int>>>,
+        greater<>
+    > cities;
+
+    cities.push({0, {0, 0}});
+
+    while(!cities.empty()) {
+        pair<long long, pair<int,int>> current = cities.top();
+        cities.pop();
+
+        long long d = current.first;
+        int x = current.second.first;
+        int used = current.second.second;
+
+        if(d != dist[x][used]) continue;
+
+        for(int i = 0; i < (int)graph[x].size(); i++) {
+            int y = graph[x][i].first;
+            long long w = graph[x][i].second;
+
+            if(dist[y][used] > d + w) {
+                dist[y][used] = d + w;
+                cities.push({dist[y][used], {y, used}});
+            }
+            if(used == 0 && dist[y][1] > d + w / 2) {
+                dist[y][1] = d + w / 2;
+                cities.push({dist[y][1], {y, 1}});
+            }
+        }
+    }
+
+    long long ans;
+    if(dist[n-1][0] < dist[n-1][1]) ans = dist[n-1][0];
+    else ans = dist[n-1][1];
+
+    cout << ans << "\n";
+}
