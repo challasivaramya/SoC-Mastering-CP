@@ -28,14 +28,14 @@ learnt Euclid's totient function,modular exponentiation,inverse,combinatoric tec
 --
 
 ## Week 4(DynamicProgramming)
-Covered memoization and also different examples where Dynamic Programming is used.
-Also covered various Knapsack problems.
+Covered memoization and also different examples where Dynamic Programming is used.  
+Also covered various Knapsack problems.  
 
 --
 
 ## Week 5(Graphs)
-Covered the basic terminology of graphs.
-Learnt algorithms for graph traversal(BFS and DFS).
-Covered a part of tree Traversal.
+Covered the basic terminology of graphs.  
+Learnt algorithms for graph traversal(BFS and DFS).  
+Covered a part of tree Traversal.  
 
 *The filenames of the codes are according to the ones mentioned in the original repository,*
