@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<int>> connected(n);
+    for(int i=0;i<m;i++){
+        int a,b;
+        cin >> a >> b;
+        a--; b--;
+        connected[a].push_back(b);
+        connected[b].push_back(a);
+    }
+    
+    vector<int> parent(n,-1);
+    vector<bool> visited(n,false);
+    
+    queue<int> q;
+    q.push(0);
+    visited[0] = true;
+    
+    while(!q.empty()){
+        int node = q.front(); q.pop();
+        for(int neighbour : connected[node]){
+            if(!visited[neighbour]){
+                visited[neighbour] = true;
+                parent[neighbour] = node;
+                q.push(neighbour);
+            }
+        }
+    }
+    
+    if(!visited[n-1]){
+        cout << "IMPOSSIBLE\n";
+        return 0;
+    }
+    
+    vector<int> path;
+    for(int y = n-1; y != -1; y = parent[y])
+        path.push_back(y+1);
+    reverse(path.begin(), path.end());
+    
+    cout << path.size() << "\n";
+    for(int x : path) cout << x << " ";
+    cout << "\n";
+    
+    return 0;
+}
