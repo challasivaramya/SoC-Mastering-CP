@@ -3,7 +3,7 @@
 **Mentors**: Sameer, Jatsya, Harsh, Abhi
 ---
 
-The topics covered are C++ STL,Sorting and Searching,Time Complexity,Greedy algorithms,Bit manupulation,Number Theory and Dynamic Programming.
+The topics covered are C++ STL,Sorting and Searching,Time Complexity,Greedy algorithms,Bit manupulation,Number Theory ,Dynamic Programming and Graphs.
 
 ---
 ## Week 1(C++ STL,Sorting and Searching):
