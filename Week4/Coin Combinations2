@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios::sync_with_stdio(0);
+ cin.tie(0);
+ int n,x;
+ cin>>n>>x;
+ unordered_set<int> coins;
+ vector<long long> ways(x+1,0);
+ ways[0]=1;
+ int val;
+ while(n--){
+cin>>val;
+coins.insert(val);
+ }
+   for(int y: coins){
+      for(int i=1;i<=x;i++){
+      if(y<=i)ways[i]+=ways[i-y];
+   
+   ways[i]%=1000000007;
+      }
+ }
+ cout<<ways[x]<<"\n";
+}
