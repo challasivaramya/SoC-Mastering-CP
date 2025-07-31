@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios::sync_with_stdio(0);
+ cin.tie(0);
+ int n;
+ cin>>n;
+ vector<int> steps(n+1,1e9);
+ steps[0]=0;
+ int num;
+ int d;
+ for(int i=1;i<=n;i++){
+   num=i;
+   while(num>0){
+      d=num%10;
+      steps[i]=steps[i]<steps[i-d]+1?steps[i]:steps[i-d]+1;
+      num/=10;
+   }
+ }
+ cout<<steps[n];
+}
