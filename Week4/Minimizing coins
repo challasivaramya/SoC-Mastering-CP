@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios::sync_with_stdio(0);
+ cin.tie(0);
+ int n,x;
+ cin>>n>>x;
+ unordered_set<int> coins;
+ int INF=1e9;
+ vector<int> num(x+1,INF);
+ num[0]=0;
+ int val;
+ while(n--){
+cin>>val;
+coins.insert(val);
+ }
+ for(int i=1;i<=x;i++){
+    for(int y: coins){
+        if(y<=i && num[i-y]!=INF){
+            num[i]=num[i]<num[i-y]+1?num[i]:num[i-y]+1;
+        }
+    }
+ }
+ if(num[x]!=INF)cout<<num[x];
+ else cout<<-1;
+}
